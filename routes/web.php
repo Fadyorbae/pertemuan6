@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CobaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('', 'App\Http\Controllers\CobaController@index');
-Route::get('/friends', 'App\Http\Controllers\CobaController@index');
-Route::get('/friends/create', 'App\Http\Controllers\CobaController@create');
-Route::post('/friends', 'App\Http\Controllers\CobaController@store');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/coba', function () {
+//     return view('coba');
+// });
+
+// Route::get('/coba/{no}',[CobaController::class, 'coba']);
+
+// Route::get('/test', [CobaController::class, 'index']);
+
+// Route::get('/test/{ke}', [CobaController::class, 'urutan']);
+Route::get('/', [CobaController::class, 'index']);
+Route::get('/Friends', [CobaController::class, 'index']);
+Route::get('/Friends/create', [CobaController::class, 'create']);
+Route::post('/Friends', [CobaController::class, 'store']);
+Route::get('/Friends/{id}', [CobaController::class, 'show']);
+Route::get('/Friends/{id}/edit', [CobaController::class, 'edit']);
+Route::put('/Friends/{id}', [CobaController::class, 'update']);
+Route::delete('/Friends/{id}', [CobaController::class, 'destroy']);
